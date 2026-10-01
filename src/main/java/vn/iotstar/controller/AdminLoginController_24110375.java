@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/admin-login"})
+@WebServlet(urlPatterns = {"/admin-login", "/admin/login"})
 public class AdminLoginController_24110375 extends HttpServlet {
     
     private IUserService_24110375 userService = new UserServiceImpl_24110375();
