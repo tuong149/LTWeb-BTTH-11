@@ -512,6 +512,7 @@
 
             <c:choose>
                 <c:when test="${not empty sessionScope.user}">
+                    <a href="${pageContext.request.contextPath}/orders">📦 Đơn hàng</a>
                     <span class="nav-user">Xin chào, <b>${sessionScope.user.fullname}</b></span>
                     <a href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
 

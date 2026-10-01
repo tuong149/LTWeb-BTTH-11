@@ -53,6 +53,13 @@
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 15px;">👉 Click để quản lý</p>
             </div>
         </a>
+        <a href="${pageContext.request.contextPath}/admin/orders" style="text-decoration: none;">
+            <div class="card" style="cursor: pointer; border-top-color: #3b82f6;">
+                <h3>Đơn hàng (COD)</h3>
+                <p class="number" style="color: #60a5fa;">${totalOrders}</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 15px;">👉 Quản lý & duyệt đơn</p>
+            </div>
+        </a>
     </div>
 </body>
 </html>

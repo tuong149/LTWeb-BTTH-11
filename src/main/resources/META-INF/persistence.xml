@@ -12,6 +12,8 @@
         <class>vn.iotstar.entity.Video_24110375</class>
         <class>vn.iotstar.entity.Share_24110375</class>
         <class>vn.iotstar.entity.Favorite_24110375</class>
+        <class>vn.iotstar.entity.Order_24110375</class>
+        <class>vn.iotstar.entity.OrderDetail_24110375</class>
 
         <properties>
             <property name="hibernate.show_sql" value="true" />

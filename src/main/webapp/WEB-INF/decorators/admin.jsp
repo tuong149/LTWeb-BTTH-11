@@ -39,6 +39,9 @@
                             <li><a href="${pageContext.request.contextPath}/admin/videos"
                                     class="${fn:contains(currentUrl, '/admin/videos') ? 'active' : ''}">Quản lý
                                     Video</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/orders"
+                                    class="${fn:contains(currentUrl, '/admin/orders') ? 'active' : ''}">Quản lý
+                                    Đơn hàng (COD)</a></li>
                         </ul>
                 </div>
                 <div class="admin-content">

@@ -344,9 +344,9 @@
                     <a href="${pageContext.request.contextPath}/home" class="btn-continue">
                         ⬅ Xem thêm khóa học
                     </a>
-                    <button type="button" class="btn-checkout" onclick="showToast('success', 'Thanh toán thành công', 'Đơn hàng của bạn đã được ghi nhận thành công! Tổng tiền: <fmt:formatNumber value="${sessionScope.cartGrandTotal}" type="number" groupingUsed="true" /> đ');">
-                        💳 Thanh toán ngay
-                    </button>
+                    <a href="${pageContext.request.contextPath}/checkout" class="btn-checkout">
+                        🚚 Đặt hàng &amp; Thanh toán (COD)
+                    </a>
                 </div>
             </div>
         </c:otherwise>

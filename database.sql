@@ -8,6 +8,8 @@ USE KTQT_WebDB;
 GO
 
 -- Xóa bảng cũ nếu tồn tại
+IF OBJECT_ID('OrderDetails', 'U') IS NOT NULL DROP TABLE OrderDetails;
+IF OBJECT_ID('Orders', 'U') IS NOT NULL DROP TABLE Orders;
 IF OBJECT_ID('Shares', 'U') IS NOT NULL DROP TABLE Shares;
 IF OBJECT_ID('Favorites', 'U') IS NOT NULL DROP TABLE Favorites;
 IF OBJECT_ID('Videos', 'U') IS NOT NULL DROP TABLE Videos;
@@ -71,6 +73,35 @@ CREATE TABLE Favorites (
     Username NVARCHAR(50) NOT NULL,
     CONSTRAINT FK_Favorites_Users FOREIGN KEY (Username) REFERENCES Users(Username) ON DELETE CASCADE,
     CONSTRAINT FK_Favorites_Videos FOREIGN KEY (VideoId) REFERENCES Videos(VideoId) ON DELETE CASCADE
+);
+GO
+
+-- Bảng Orders (Thanh toán / Đơn hàng)
+CREATE TABLE Orders (
+    OrderId NVARCHAR(50) NOT NULL PRIMARY KEY,
+    OrderDate DATETIME DEFAULT GETDATE(),
+    Username NVARCHAR(50) NOT NULL,
+    RecipientName NVARCHAR(100) NOT NULL,
+    Phone NVARCHAR(20) NOT NULL,
+    Address NVARCHAR(300) NOT NULL,
+    Note NVARCHAR(500) NULL,
+    TotalAmount FLOAT NOT NULL,
+    PaymentMethod NVARCHAR(50) DEFAULT 'COD',
+    PaymentStatus NVARCHAR(50) DEFAULT 'UNPAID',
+    OrderStatus NVARCHAR(50) DEFAULT 'PENDING',
+    CONSTRAINT FK_Orders_Users FOREIGN KEY (Username) REFERENCES Users(Username) ON DELETE CASCADE
+);
+GO
+
+-- Bảng OrderDetails (Chi tiết đơn hàng)
+CREATE TABLE OrderDetails (
+    DetailId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    OrderId NVARCHAR(50) NOT NULL,
+    VideoId NVARCHAR(50) NOT NULL,
+    Quantity INT NOT NULL DEFAULT 1,
+    Price FLOAT NOT NULL,
+    CONSTRAINT FK_OrderDetails_Orders FOREIGN KEY (OrderId) REFERENCES Orders(OrderId) ON DELETE CASCADE,
+    CONSTRAINT FK_OrderDetails_Videos FOREIGN KEY (VideoId) REFERENCES Videos(VideoId) ON DELETE CASCADE
 );
 GO
 
